@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<meta charset="UTF-8" name="author" content="GISQUET Orlan" />
+		<title>MarsupialPocket</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				var includes = $('[data-include]');
+				jQuery.each(includes, function(){
+					var file = $(this).data('include') + '.html';
+					$(this).load(file);
+	    		});
+	  		});
+	  	</script>
+		<div data-include="include/Entete"></div>
+	</head>
+	<body>
+		<div class="col-xs-6" >
+			<form id="login" @submit="checkFormConnexion" method="post">
+			
+				<div class="row">
+				
+					<div class="form-group col-xs-6">
+					  
+						<input v-if="loginType === true " v-model="mail" :class="['form-control', isEmailValid]" placeholder='E-mail' name='mail' maxlength= '350' key="mail_in" />
+						<input v-else v-model="pseudo" class="form-control" placeholder='Pseudo' name='pseudo' maxlength= '350' key="pseudo_in" />	
+						<div class="invalid-feedback">
+							e-mail invalide.
+						</div>			
+						<p v-if="mail === null && error && loginType === true">
+		    				Il faut un E-mail
+		  			  	</p>
+		  			  	<p v-if="pseudo === null && error && loginType === false">
+		    				Il faut un Pseudo
+		  			  	</p>
+		  			  
+					</div>
+					
+					<div class="form-group col-xs-6">
+					  <button type="button" class="btn btn-outline-primary" @click="changelogtype">Switch</button>
+					</div>
+					
+	  			</div>
+	  			
+	  			<div class="row">
+	  				<div class="form-group col-xs-6">
+						<input type="password" v-model="mdp" class="form-control" placeholder='Mot De Passe' name= 'mdp' />
+						<p v-if="mdp === null && error">
+		    				Il faut un mot de passe
+		  				</p>
+		  			</div>
+	  			</div>
+	  			<div class="row">
+					<input type="submit" class="btn btn-outline-success" value="Connexion" name="Valider" />
+					<a href= "Inscription">Creer un compte</a>
+				</div>
+			</form>
+		</div><br>
+		<div data-include="include/Basdepage"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+		<script src="js/login.js"></script>
+	</body>
+</html>

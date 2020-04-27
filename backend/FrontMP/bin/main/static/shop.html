@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<meta charset="UTF-8" name="author" content="GISQUET Orlan" />
+		<title>MarsupialPocket</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				var includes = $('[data-include]');
+				jQuery.each(includes, function(){
+					var file = $(this).data('include') + '.html';
+					$(this).load(file);
+	    		});
+	  		});
+	  	</script>
+		<div data-include="include/Entete"></div>
+	</head>
+	<body>
+		<div>Web Application. Passed parameter : th:text="${message}"</div>
+		<div data-include="include/Basdepage"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

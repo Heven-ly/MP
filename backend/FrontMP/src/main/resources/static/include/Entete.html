@@ -1,0 +1,104 @@
+<!-- On retrouve dans ce fichier :
+	Connection à la base de donnée
+	Modification de la localisation
+	Connection du client via la variable SESSION
+	Les différents Headers
+	Lien pour l'icone du site
+	L'Importation de bootstrap 4
+-->
+	
+	<title>MarsupialPocket</title>
+ 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+ 	<link href= "Style/Format.css" rel = "stylesheet" type= "text/css">
+	
+	<!--Icone Du Site -->
+	<link rel="icon" href="Style/Photos/kangourou_icon.ico" type="image/ico">
+	
+	<!--Importation de bootstrap 4 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<!-- .js qui regroupe les variables communes à toutes les pages -->
+	<script src="../js/global.js"></script>
+	
+	<!--Header si le client n'est pas connecté -->
+	<h2 id ="global" align="center">{{site_name}}</h2>
+	<div class="col-11 mx-auto">
+		<ul class="nav nav-tabs">
+			<li class="nav-items">
+				<a class="nav-link" href= "/" >
+						Accueil
+				</a>
+			</li>
+			<li class="nav-items">
+				<a class="nav-link" href= "Voyager" >
+						Voyager
+				</a>
+			</li>
+			<li class="nav-items">
+				<a class="nav-link" href= "Proposer" >
+						Proposer
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href= "Panier" >
+						Panier 
+				</a>
+			</li>
+			<li class="nav-item ml-auto">
+				<a class="nav-link" href= "LogIn">
+					Se Connecter
+				</a>
+			</li>
+        </ul>
+	</div>
+	
+	<!--Header si le client est connecté 
+	<title>MarsupialPocket
+	</title>
+	<a href= "PageAccueil.html">
+		<img src="Style/Photos/exit.jpg" style="width:2%;height:2%;border-radius:25px;">
+	</a>
+	<a href="index.html?action=deconnection" align="top-right">Déconnection</a>
+	<h1 id ="titre1" align="center">MarsupialPocket</h1>
+	
+	<meta name="author" content="GISQUET Orlan" />
+	<meta charset="UTF-8">
+	<link href= "Style/Format.css" rel = "stylesheet" type= "text/css">
+	
+	<div class="container">			
+		<ul class="nav nav-tab nav-justified">
+			<li class="nav-item active">
+				<a class="nav-link" align = "center" href= "index.html" >
+						Accueil
+				</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" align = "center"  >Voyage</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href= "shop.html">Rechercher un Voyager</a>
+					<a class="dropdown-item" href= "ProposeVoyage.html">Proposer un voyage</a>
+				</div>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" align = "center" href= "panier.html" >
+						Mon Panier
+				</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" align = "center"  >Mon Compte</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href= "compte.html">Mes Coordonnées</a>
+					<a class="dropdown-item" href= "compte.html?action=selectvoyage">Mes Voyages</a>
+					<a class="dropdown-item" href= "compte.html?action=selectcommande">Mes Propositions</a>
+				</div>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" align = "center" href= "CGV.html" >
+						Condition Générale de Vente
+				</a>
+			</li>
+		</ul>
+	</div>	
+	-->	

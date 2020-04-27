@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" name="author" content="GISQUET Orlan" />
+		<title>MarsupialPocket</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				var includes = $('[data-include]');
+				jQuery.each(includes, function(){
+					var file = $(this).data('include') + '.html';
+					$(this).load(file);
+	    		});
+	  		});
+	  	</script>
+		<div data-include="include/Entete"></div>
+	</head>
+	<body>
+		<div>
+			<img src="Style/Photos/Final_LogoMP.png" alt="Logo's Place">
+			<div class="col-xs-6" >
+				<form modelAttribute="member" id="sub" @submit="checkFormInscription" method="post">	
+					<div v-if="error" class="row" >
+						<div class="alert alert-danger col" role="alert">
+						  Remplissez correctement le formulaire!
+						</div>
+					</div>
+					<div class="row" >
+						<div class="form-group col">
+							<input v-model="nom" type="text" class="form-control" placeholder='Nom' name='nom' maxlength= '350' />
+						</div>
+						<div class="form-group col">	
+							<input v-model="prenom" type="text" class="form-control" placeholder='Prenom' name='prenom' maxlength= '350' />
+						</div>
+					</div>
+					<div class="row" >
+						<div class="form-group col">
+							<input v-model="pseudo" type="text" class="form-control" placeholder='Pseudo' name='pseudo' maxlength= '350' />
+						</div>
+					</div>
+					<div class="row" >
+						<div class="form-group col">
+							<input v-model="mail" :class="['form-control', isEmailValid]" placeholder='E-mail' name='mail' maxlength= '350' />
+						</div>
+					</div>
+					<div class="row" >
+						<div class="form-group col">
+							<input v-model="adresse" type="text" class="form-control" placeholder='Adresse' name='adresse' maxlength= '350' />
+						</div>
+					</div>
+					<div class="row" >
+						<div class="form-group col">
+							<input v-model="cp" :class="['form-control', isCPValid]" placeholder='Code Postal' name='cp' maxlength= '5' />
+						</div>
+						<div class="form-group col">
+							<input v-model="phone" :class="['form-control', isPHONEValid]" placeholder='Telephone' name='phone' maxlength= '10' />
+						</div>
+					</div>
+					<div class="row" >
+						<div class="form-group col">
+							<input v-model="mdp" type="password" class="form-control" placeholder='Mot De Passe' name= 'mdp' />
+						</div>
+						<div class="form-group col">
+							<input v-model="cmdp" type="password" :class="['form-control', match]" placeholder='Confirmer Mot de Passe' name= 'cmdp' />
+						</div>
+					</div>
+					<div class="row" >
+						<div class="form-group col">
+							<input type="submit" class="btn btn-outline-success" value="Creer mon Compte" name="Valider">
+						</div>
+					</div>
+				</form>
+				
+			</div>
+		</div><br>
+		<div data-include="include/Basdepage"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+		<script src="js/sub.js"></script>
+	</body>
+</html>

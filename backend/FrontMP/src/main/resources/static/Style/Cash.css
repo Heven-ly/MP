@@ -1,0 +1,10 @@
+body { 
+  font-family: TimeNewRoman,helvetica,sans-serif; 
+  background-color: gray;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+

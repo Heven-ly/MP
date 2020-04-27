@@ -1,0 +1,133 @@
+/*Style CSS de toutes les pages*/
+body, html{
+	height:100%;
+}
+
+body{
+
+  text-align:center;
+  min-height:100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+  voice-family: inherit;
+  height: auto;
+  font-family: TimeNewRoman,helvetica,sans-serif;
+  background: #2980B9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#principal{
+	padding: 10px;
+	padding-bottom: 48px;
+}
+
+#basdepage{
+	position: absolute;
+	bottom: 0;
+	background-color: #0489B1;
+	width: 100%;
+}
+
+ul li a{
+	color: #555555;
+	font-weight: bold
+}
+
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+footer a{
+	color: black;
+	float : right;
+	
+}
+
+footer div{
+	color: black;
+	float : left;	
+}
+
+div form{
+	margin-left: 10%
+}
+
+div img{
+	float : right;
+	margin-right: 15%;
+}
+
+#titre 
+{ 
+	text-shadow: 0 0 3px red, 0 0 5px red;
+	color : white;
+}
+
+#titre1{
+	text-shadow: 0 0 3px red, 0 0 5px cyan;
+	color : white;
+}
+
+*{
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*Formulaire d'incription et de connexion*/
+form {
+	margin-top: 10%
+}
+
+/*Style pour le fichier index.html*/
+#citation{
+	float: right;
+	margin-top: 10%
+}
+
+#index img{
+	margin-top: 3%
+}
+
+/*Style pour le fichier index.html*/
+blockquote {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic; 
+    width: 500px;
+    padding: 0.35em 40px;
+    position: relative;
+    color: #383838;
+}
+
+/*Style pour le fichier index.html*/
+blockquote:before {
+    display: block;
+    padding-left: 10px;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}
+
+/*Style pour le fichier index.html*/
+blockquote cite {
+    color: #555555;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+
+/*Style pour le fichier index.html*/
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+

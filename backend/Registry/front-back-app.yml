@@ -1,0 +1,214 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontmp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontmp
+  template:
+    metadata:
+      labels:
+        app: frontmp
+    spec:
+      containers:
+      - name: frontmp
+        image: mpdockerhub/frontmp:1
+        imagePullPolicy: Always
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: membre
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: membre
+  template:
+    metadata:
+      labels:
+        app: membre
+    spec:
+      containers:
+      - name: membre
+        image: mpdockerhub/membre:1
+        imagePullPolicy: Always
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marsupialfrontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: marsupialfrontend
+  template:
+    metadata:
+      labels:
+        app: marsupialfrontend
+    spec:
+      containers:
+      - name: marsupialfrontend
+        image: mpdockerhub/marsupialfrontend:1
+        imagePullPolicy: Always
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voyage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: voyage
+  template:
+    metadata:
+      labels:
+        app: voyage
+    spec:
+      containers:
+      - name: voyage
+        image: mpdockerhub/voyage:1
+        imagePullPolicy: Always
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry
+  template:
+    metadata:
+      labels:
+        app: registry
+    spec:
+      containers:
+        - name: registry
+          image: mpdockerhub/registry:1
+          imagePullPolicy: Always
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontmp
+spec:
+  ports:
+    - name: http
+      targetPort: 8081
+      port: 8081
+  selector:
+    app: frontmp
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: membre
+spec:
+  ports:
+    - name: http
+      targetPort: 8082
+      port: 8082
+  selector:
+    app: membre
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: voyage
+spec:
+  ports:
+    - name: http
+      targetPort: 8083
+      port: 8083
+  selector:
+    app: voyage
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: marsupialfrontend
+spec:
+  ports:
+    - name: http
+      targetPort: 8080
+      port: 80
+  selector:
+    app: marsupialfrontend
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry
+spec:
+  ports:
+    - port: 8761
+      targetPort: 8761
+  selector:
+    app: registry
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: frontmp-service
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: frontmp.localhost
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: frontmp
+              servicePort: 8081
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: marsupialfrontend-service
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: marsupialfrontend.localhost
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: marsupialfrontend
+              servicePort: 8080
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: registry-service
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: registry.localhost
+      http:
+        paths:
+          - path: /eureka
+            backend:
+              serviceName: registry
+              servicePort: 8761
+
